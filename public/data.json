@@ -14,7 +14,7 @@
     "description": "Analytics dashboard taking more than 60 seconds to load.",
     "customer": "BrightSpark Ltd",
     "priority": "Medium",
-    "status": "In Progress",
+    "status": "Open",
     "createdAt": "2024-02-03"
   },
   {
@@ -32,7 +32,7 @@
     "description": "Opening reports consistently crashes the app on iPhone.",
     "customer": "SkyBridge Media",
     "priority": "Critical",
-    "status": "In Progress",
+    "status": "Open",
     "createdAt": "2024-02-12"
   },
   {
@@ -41,7 +41,7 @@
     "description": "Users aren’t getting the reset password email.",
     "customer": "GreenLeaf Solutions",
     "priority": "High",
-    "status": "Resolved",
+    "status": "Open",
     "createdAt": "2024-01-29"
   },
   {
@@ -59,7 +59,7 @@
     "description": "Session expires unexpectedly while actively using the app.",
     "customer": "Horizon Bank",
     "priority": "Medium",
-    "status": "In Progress",
+    "status": "Open",
     "createdAt": "2024-02-21"
   },
   {
@@ -77,7 +77,7 @@
     "description": "Changing notification settings has no effect after reload.",
     "customer": "BlueWater Co.",
     "priority": "Medium",
-    "status": "Resolved",
+    "status": "Open",
     "createdAt": "2024-01-31"
   },
   {
@@ -95,7 +95,7 @@
     "description": "Charts appear blank with JavaScript console errors.",
     "customer": "SunBeam Retail",
     "priority": "High",
-    "status": "In Progress",
+    "status": "Open",
     "createdAt": "2024-02-16"
   },
   {
@@ -104,7 +104,7 @@
     "description": "Marketing emails appear broken on Outlook.",
     "customer": "Pixel Partners",
     "priority": "Low",
-    "status": "Closed",
+    "status": "Open",
     "createdAt": "2024-01-20"
   },
   {
@@ -122,7 +122,7 @@
     "description": "Exporting data reports takes more than 10 minutes.",
     "customer": "SilverGate Analytics",
     "priority": "Medium",
-    "status": "Resolved",
+    "status": "Open",
     "createdAt": "2024-01-28"
   },
   {

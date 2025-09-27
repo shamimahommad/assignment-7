@@ -1,6 +1,8 @@
 import React from 'react';
 
-const ProcessCard = () => {
+const ProcessCard = ({inProgressCount, resolvedCount}) => {
+    console.log(inProgressCount, resolvedCount);
+    
     return (
         <>
             <div className="container mx-auto">
@@ -10,7 +12,7 @@ const ProcessCard = () => {
                         <img className="w-1/4 h-full" alt="" src="/public/vector1.png" />
                         <div className="w-1/4 flex flex-col items-center justify-center">
                             <p className="text-[20px] md:text-[24px] text-white whitespace-nowrap">In-Progress</p>
-                            <h1 className="text-[50px] md:text-[60px] font-bold text-white">0</h1>
+                            <h1 className="text-[50px] md:text-[60px] font-bold text-white">{inProgressCount}</h1>
                         </div>
                         <img className="scale-x-[-1] w-1/4 h-full" alt="" src="/public/vector1.png" />
                     </div>
@@ -20,7 +22,7 @@ const ProcessCard = () => {
                         <img className="w-1/4 h-full" alt="" src="/public/vector1.png" />
                         <div className="w-1/4 flex flex-col items-center justify-center">
                             <p className="text-[20px] md:text-[24px] text-white">Resolved</p>
-                            <h1 className="text-[50px] md:text-[60px] font-bold text-white">0</h1>
+                            <h1 className="text-[50px] md:text-[60px] font-bold text-white">{resolvedCount}</h1>
                         </div>
                         <img className="scale-x-[-1] w-1/4 h-full" alt="" src="/public/vector1.png" />
                     </div>

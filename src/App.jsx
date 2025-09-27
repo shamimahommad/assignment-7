@@ -1,32 +1,43 @@
 
+import { Suspense, useState } from 'react';
 import './App.css'
 import Footer from './Components/Footer'
 import Navbar from './Components/Navbar'
 import ProcessCard from './Components/ProcessCard'
+import { Bounce, ToastContainer } from 'react-toastify';
+import CustomerTickets from './Components/CustomerTickets';
+
 
 function App() {
+    const [inProgressCount, setInProgressCount] = useState(0);
+  const [resolvedCount, setResolvedCount] = useState(0);
 
   return (
     <>
       <Navbar></Navbar>
-      <ProcessCard></ProcessCard>
+       <ProcessCard 
+        inProgressCount={inProgressCount} 
+        resolvedCount={resolvedCount} 
+      />
 
-     
-        <div className='bg-amber-700 container mx-auto h-[1000px] grid grid-cols-4'>
-          <div className='col-span-3 bg-blue-700 p-5'>
-            <h6 className='font-bold text-4xl'>Customer Tickets</h6>
-          </div>
-          <div className='col-span-1 bg-amber-400 p-5'>
-            <h6 className='font-bold text-4xl'>Task Status</h6>
-            <h6 className='font-bold text-4xl'>Resolved Task</h6>
-
-          </div>
-
-
-        </div>
-
+      <CustomerTickets 
+        setInProgressCount={setInProgressCount}
+        setResolvedCount={setResolvedCount}> </CustomerTickets>
 
       <Footer></Footer>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        transition={Bounce}
+      > </ToastContainer>
     </>
   )
 }
