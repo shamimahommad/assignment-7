@@ -3,7 +3,6 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Container from './Container';
 
-// Create a promise for fetching data
 const dataPromise = fetch("/data.json").then(response => response.json());
 
 const CustomerTickets = ({ setInProgressCount, setResolvedCount }) => {
@@ -27,19 +26,17 @@ const CustomerTickets = ({ setInProgressCount, setResolvedCount }) => {
     });
 
     const handleCardClick = (ticket) => {
-        // If ticket is already in progress, don't do anything
         if (ticket.status === "In Progress") {
             toast.warn(`Ticket "${ticket.title}" is already in progress!`);
             return;
         }
-
-        // Update ticket status in allTickets
+        
         const updatedAllTickets = allTickets.map(t =>
             t.id === ticket.id ? { ...t, status: "In Progress" } : t
         );
         setAllTickets(updatedAllTickets);
 
-        // Add to selectedTickets if not already there
+        
         if (!selectedTickets.find(t => t.id === ticket.id)) {
             const updatedSelectedTickets = [...selectedTickets, { ...ticket, status: "In Progress" }];
             setSelectedTickets(updatedSelectedTickets);
@@ -50,19 +47,18 @@ const CustomerTickets = ({ setInProgressCount, setResolvedCount }) => {
     };
 
     const handleCompleteTicket = (ticket) => {
-        // Remove from allTickets
+       
         const updatedAllTickets = allTickets.filter(t => t.id !== ticket.id);
         setAllTickets(updatedAllTickets);
 
-        // Remove from selectedTickets
+        
         const updatedSelectedTickets = selectedTickets.filter(t => t.id !== ticket.id);
         setSelectedTickets(updatedSelectedTickets);
 
-        // Add to resolvedTickets
         const updatedResolvedTickets = [...resolvedTickets, { ...ticket, status: "Resolved" }];
         setResolvedTickets(updatedResolvedTickets);
 
-        // Update counts
+        
         setInProgressCount(updatedSelectedTickets.length);
         setResolvedCount(updatedResolvedTickets.length);
 
@@ -115,22 +111,30 @@ const CustomerTickets = ({ setInProgressCount, setResolvedCount }) => {
                                         onClick={() => handleCompleteTicket(ticket)}
                                         className="btn btn-primary w-full bg-green-500 hover:bg-green-600 text-white border-0"
                                     >
-                                       Open
+                                        Open
                                     </button>
                                 </div>
                             ))
                         ) : (
-                            <p className="text-gray-500">Click a ticket to select it.</p>
+                            <p className="text-gray-500 bg-white p-3 rounded-lg shadow">Click a ticket to select it.</p>
                         )}
                     </div>
 
                     <h2 className='text-4xl font-bold mb-5'>Resolved List</h2>
-                    <div className="space-y-3 bg-white">
-                        {resolvedTickets.map(ticket => (
-                            <div key={ticket.id} className="bg-gray-100 p-3 rounded-lg shadow">
-                                <h4 className="font-semibold text-gray-700">{ticket.title} (Resolved)</h4>
+                    <div className="space-y-3">
+                        {resolvedTickets.length === 0 ? (
+                            <div className="text-gray-700 bg-white p-3 rounded-lg shadow">
+                                No Resolved Task Yet
                             </div>
-                        ))}
+                        ) : (
+                            resolvedTickets.map(ticket => (
+                                <div key={ticket.id} className="bg-white p-3 rounded-lg shadow">
+                                    <h4 className="font-semibold text-gray-700">
+                                        {ticket.title} (Resolved)
+                                    </h4>
+                                </div>
+                            ))
+                        )}
                     </div>
                 </div>
             </div>

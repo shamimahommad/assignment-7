@@ -46,6 +46,7 @@ const Footer = () => {
                     </div>
                 </nav>
             </div>
+            <p className='border-t-2 border-gray-500 mt-2 p-3 text-gray-400 text-center'>© 2025 CS — Ticket System. All rights reserved.</p>
         </footer>
     );
 };
