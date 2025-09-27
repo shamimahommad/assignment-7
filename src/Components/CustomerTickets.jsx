@@ -43,7 +43,7 @@ const CustomerTickets = ({ setInProgressCount, setResolvedCount }) => {
             setInProgressCount(updatedSelectedTickets.length);
         }
 
-        toast.info(`Ticket "${ticket.title}" status changed to In Progress!`);
+        toast.success(`${ticket.title} In Process`);
     };
 
     const handleCompleteTicket = (ticket) => {
@@ -62,7 +62,7 @@ const CustomerTickets = ({ setInProgressCount, setResolvedCount }) => {
         setInProgressCount(updatedSelectedTickets.length);
         setResolvedCount(updatedResolvedTickets.length);
 
-        toast.success(`Ticket "${ticket.title}" has been resolved!`);
+        toast.success(`${ticket.title} resolved!`);
     };
 
     return (
@@ -101,12 +101,11 @@ const CustomerTickets = ({ setInProgressCount, setResolvedCount }) => {
 
                 <div className='col-span-1'>
                     <h2 className='text-4xl font-bold mb-5'>Selected Tickets</h2>
-                    <div className="space-y-3 mb-5">
+                    <div className="space-y-3 mb-5 bg-gray-50 shadow p-5 rounded-xl">
                         {selectedTickets.length > 0 ? (
                             selectedTickets.map(ticket => (
                                 <div key={ticket.id} className="bg-white p-4 rounded-lg shadow">
                                     <h4 className="font-semibold mb-2">{ticket.title}</h4>
-                                    <p className="text-sm text-gray-600 mb-3">Status: In Progress</p>
                                     <button
                                         onClick={() => handleCompleteTicket(ticket)}
                                         className="btn btn-primary w-full bg-green-500 hover:bg-green-600 text-white border-0"
@@ -121,7 +120,7 @@ const CustomerTickets = ({ setInProgressCount, setResolvedCount }) => {
                     </div>
 
                     <h2 className='text-4xl font-bold mb-5'>Resolved List</h2>
-                    <div className="space-y-3">
+                    <div className="space-y-3 bg-gray-50 shadow p-5 rounded-xl">
                         {resolvedTickets.length === 0 ? (
                             <div className="text-gray-700 bg-white p-3 rounded-lg shadow">
                                 No Resolved Task Yet
